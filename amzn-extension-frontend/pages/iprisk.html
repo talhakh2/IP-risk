@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Risk Checker</title>
+    <style>
+        body {
+            width: 400px;
+            height: 600px;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .top-bar {
+            background-color: #6a5acd;
+            color: white;
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .button {
+            background-color: #6a5acd;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+        }
+
+        .button:hover {
+            background-color: #483d8b;
+        }
+
+        #loader {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #loader img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #6a5acd;
+            color: white;
+        }
+
+        td {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">IP Risk Checker</div>
+    <div class="container">
+        <button id="checkIpRiskButton" class="button">Check IP Risk</button>
+        <div id="loader" class="loader">
+            <img src="pages/loading.gif" alt="Loading...">
+        </div>
+        <p>New offer count stayed rigid for 30 days or more: <b><span id="pattern_one"></span></b></p>
+        <p>Drop of seller count in 3 or less days: <b><span id="pattern_two"></span></b></p>
+        <div class="table-container">
+            <table id="riskTable1">
+                <thead>
+                    <tr>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="table-container">
+            <table id="riskTable2">
+                <thead>
+                    <tr>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Dropped From</th>
+                        <th>Dropped To</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <button id="exportCsvButton1" class="button">Export Pattern One Dates to CSV</button>
+        <button id="exportCsvButton2" class="button">Export Pattern Two Dates to CSV</button>
+
+        <p><a href="https://www.google.com" id="noIpRiskLink">Get List of Products with No IP Risk</a></p>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;       
+        }
+
+        .page {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: white;
+            border-color: None;
+        }
+
+        .top-bar {
+            display: flex;
+            position: absolute;
+            top: 0;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 10px;
+            background-color: blueviolet;
+        }
+
+        .logo {
+            height: 40px;
+            padding-left: 10px;
+        }
+
+        .extension-name {
+            font-size: 1.25em;
+            margin-left: 10px;
+            color: white;
+            padding-right: 10px;
+            font-weight: bold;
+        }
+
+        #loginPage h2 {
+            margin: 20px 0;
+        }
+
+        #loginPage input {
+            margin: 10px 0;
+            padding: 5px;
+            width: 200px;
+        }
+
+        #loginButton {
+            background-color: blueviolet;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #loginErrorMessage {
+            color: red;
+            display: none;
+        }
+
+        #signUpLink {
+            color: blue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="page" id="loginPage">
+        <div class="top-bar">
+            <img src="pages/logo.png" alt="Extension Logo" class="logo">
+            <span class="extension-name">IP Risk Checker</span>
+        </div>
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <button id="loginButton">Login</button>
+        <p id="loginErrorMessage">Login failed. Please try again.</p>
+        <p>Don't have an account? <a id="signUpLink">Sign up</a></p>
+    </div>
+</body>
+</html>
