@@ -8,9 +8,19 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+# importing os module for environment variables
+import os
+# importing necessary functions from dotenv library
+from dotenv import load_dotenv, dotenv_values 
+# loading variables from .env file
+load_dotenv() 
+
+# accessing and printing value
+print(os.getenv('API_KEY'))
+
 # Set Keepa API details
 API_URL = "https://api.keepa.com/product?key={}&domain=1&asin={}"  # Adjust for your Keepa API
-API_KEY = "fcb7li7tu6vcd85svgo1tao0opr2q3c0jmagjgk540q4ljjr7u14m9d0ae22e5hr"  # Replace with your actual Keepa API key
+API_KEY = os.getenv('API_KEY')
 
 @app.route('/detect_ip_risk', methods=['POST'])
 def analyze_data():
